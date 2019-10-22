@@ -1,26 +1,15 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    project_init.bash                                  :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agrumbac <agrumbac@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/11/04 17:49:26 by agrumbac          #+#    #+#              #
-#    Updated: 2018/11/25 19:10:17 by agrumbac         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 # ------------------------ First Time Setup ------------------------
 # (1) Please change the file headers in:
 #    * Makefile
-#    * srcs/main.c
-#    * includes/header.h
+#    * src/main.c
+#    * include/header.h
 #
 # (2) Please use your OWN libft (change the Makefile libft/% rule)
 #
 # (3) Please set your template project path:
 
-template_path="/Users/agrumbac/Documents/github/project_init"
+template_path="/Users//Documents/github/project_init"
 
 # ------------------------ All done. Enjoy! ------------------------
 
@@ -63,15 +52,15 @@ upper_case_name=`echo $name | awk '{print toupper($0)}'`
 # Project structure
 mkdir $name
 cd $name
-printf $B"["$G"OK"$B"] Generating "$Y"srcs"$B" and "$Y"includes"$B" folders\n"$X
-cp -R $template_path/srcs .
-cp -R $template_path/includes .
-sed -e 's/__PROJECT_NAME__/'"$name"'/g' srcs/main.c > .TMP \
-	&& mv -f .TMP srcs/main.c
-sed -e 's/__PROJECT_NAME__/'"$upper_case_name"'/g' includes/header.h > .TMP \
-	&& mv -f .TMP includes/header.h
-mv srcs/main.c srcs/$name.c
-mv includes/header.h includes/$name.h
+printf $B"["$G"OK"$B"] Generating "$Y"src"$B" and "$Y"include"$B" folders\n"$X
+cp -R $template_path/src .
+cp -R $template_path/include .
+sed -e 's/__PROJECT_NAME__/'"$name"'/g' src/main.c > .TMP \
+	&& mv -f .TMP src/main.c
+sed -e 's/__PROJECT_NAME__/'"$upper_case_name"'/g' include/header.h > .TMP \
+	&& mv -f .TMP include/header.h
+mv src/main.c src/$name.c
+mv include/header.h include/$name.h
 
 # Makefile
 printf $B"["$G"OK"$B"] Generating "$Y"Makefile"$B"\n"$X

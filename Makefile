@@ -1,14 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agrumbac <agrumbac@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/04/10 17:19:11 by agrumbac          #+#    #+#              #
-#    Updated: 2018/11/25 18:42:54 by agrumbac         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 ############################## BIN #############################################
 
@@ -18,7 +7,7 @@ SRC = __PROJECT_NAME__.c
 
 CC = clang
 
-SRCDIR = srcs
+SRCDIR = src
 
 OBJDIR = objs
 
@@ -28,7 +17,7 @@ DEP = $(addprefix ${OBJDIR}/, $(SRC:.c=.d))
 
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address,undefined -g -MMD
 
-LDFLAGS = -Ilibft/includes/ -Iincludes/
+LDFLAGS = -Ilibft/include/ -Iinclude/
 
 LIB = -Llibft/ -lft
 
@@ -61,7 +50,7 @@ CUT = "\033[K"
 all: art ${NAME}
 
 libft/%:
-	@[[ -d libft ]] || (echo ${M}Cloning"   "[libft]...${X} && git clone https://github.com/grumbach/libft &>/dev/null)
+	@[[ -d libft ]] || (echo ${M}Cloning"   "[libft]...${X} && git clone https://github.com/spolowy/libft &>/dev/null)
 	@make -C libft
 
 ${NAME}: ${OBJ}
@@ -91,7 +80,7 @@ fclean: clean
 
 test: libft/libft.a
 	@${CC} -g ${LDFLAGS} -fsanitize=address,undefined ${LIB} \
-	-I. -o ${NAME} $(addprefix srcs/, ${SRC})
+	-I. -o ${NAME} $(addprefix src/, ${SRC})
 
 re: fclean all
 
