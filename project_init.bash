@@ -9,7 +9,7 @@
 #
 # (3) Please set your template project path:
 
-template_path="/Users//Documents/github/project_init"
+template_path="/Users/nelyx/work/project_init"
 
 # ------------------------ All done. Enjoy! ------------------------
 
